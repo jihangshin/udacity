@@ -13155,8 +13155,6 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 
-<span class="kn">from</span> <span class="nn">seaborn</span> <span class="k">import</span> <span class="n">countplot</span>
-
 
 <span class="c1"># magic word for producing visualizations in notebook</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -13828,7 +13826,7 @@ div#notebook {
     </tr>
     <tr>
       <th>top</th>
-      <td>GREEN_AVANTGARDE</td>
+      <td>SEMIO_ERL</td>
       <td>person</td>
       <td>ordinal</td>
       <td>[-1]</td>
@@ -14361,27 +14359,115 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How much data is missing in each row of the dataset?</span>
-<span class="n">ls_num_of_nan</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">ls_row_index</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start for loop&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row_index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">azdias</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">num_of_nan</span> <span class="o">=</span> <span class="n">azdias</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_index</span><span class="p">,:]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">ls_num_of_nan</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_of_nan</span><span class="p">)</span>
-    <span class="n">ls_row_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_index</span><span class="p">)</span>
-<span class="c1">#     print(row_index, num_of_nan)</span>
+<span class="n">row_nans</span> <span class="o">=</span> <span class="n">azdias</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 
-<span class="n">num_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ls_row_index</span><span class="p">)</span>
-<span class="c1"># print(prop_of_nan)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">row_nans</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">row_nans</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600000</span><span class="o">+</span><span class="mi">100000</span><span class="p">,</span><span class="mi">100000</span><span class="p">),[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;100k&#39;</span><span class="p">,</span><span class="s1">&#39;200k&#39;</span><span class="p">,</span><span class="s1">&#39;300k&#39;</span><span class="p">,</span><span class="s1">&#39;400k&#39;</span><span class="p">,</span><span class="s1">&#39;500k&#39;</span><span class="p">,</span><span class="s1">&#39;600k&#39;</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;# of data points&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of missing values&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before draw histogram&quot;</span><span class="p">)</span>
-<span class="c1"># the histogram of the data</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ls_num_of_nan</span><span class="p">,</span> <span class="n">num_bins</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5,0,&#39;# of missing values&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row_nans</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    48
+1     3
+2     3
+3     8
+4     2
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write code to divide the data into two subsets based on the number of missing</span>
+<span class="c1"># values in each row.</span>
+<span class="n">above_nans</span> <span class="o">=</span> <span class="n">row_nans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_nans</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">below_and_equal_nans</span> <span class="o">=</span> <span class="n">row_nans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row_nans</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">row_nans</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">above_nans</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">below_and_equal_nans</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">above_nans</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">+</span> <span class="n">below_and_equal_nans</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">row_nans</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">above_nans</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">below_and_equal_nans</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14398,8 +14484,13 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>start for loop
-before draw histogram
+<pre>(891221,)
+(93215,)
+(798006,)
+891221
+int64
+int64
+int64
 </pre>
 </div>
 </div>
@@ -14410,25 +14501,25 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write code to divide the data into two subsets based on the number of missing</span>
-<span class="c1"># values in each row.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the distribution of values for at least five columns where there are</span>
 <span class="c1"># no or few missing values, between the two subsets.</span>
+
+<span class="n">target_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SEMIO_TRADV&#39;</span><span class="p">,</span> <span class="s1">&#39;SEMIO_KAEM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEMIO_DOM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEMIO_RAT&#39;</span><span class="p">,</span> <span class="s1">&#39;SEMIO_ERL&#39;</span><span class="p">]</span>
+<span class="n">columns_filtered</span> <span class="o">=</span> <span class="n">azdias</span><span class="p">[</span><span class="n">target_columns</span><span class="p">]</span>
+
+<span class="c1">#How to create two subset from &#39;columns_filtered&#39; using the row_index of &#39;above_nans&#39; &amp; &#39;below_and_equal_nans&#39;?</span>
+<span class="n">target_rows</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># print(columns_filtered.loc[1:2])</span>
+
+<span class="c1"># fig, ax =plt.subplots(1,2)</span>
+<span class="c1"># # sns.countplot(x=&quot;above_nans&quot;, data=above_nans, ax=ax[0])</span>
+<span class="c1"># # sns.countplot(x=&quot;below_and_equal_nans&quot;, data=below_and_equal_nans, ax=ax[1])</span>
+<span class="c1"># sns.countplot(above_nans, ax=ax[1])</span>
+<span class="c1"># sns.countplot(below_and_equal_nans, ax=ax[0])</span>
+<span class="c1"># fig.show()</span>
 </pre></div>
 
     </div>
@@ -14461,13 +14552,47 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How many features are there of each data type?</span>
+<span class="c1"># feat_info[[&#39;attribute&#39;,&#39;type&#39;]]</span>
+
+<span class="n">num_of_categorical_attribute</span> <span class="o">=</span> <span class="n">feat_info</span><span class="p">[</span><span class="n">feat_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_of_categorical_attribute&quot;</span><span class="p">,</span> <span class="n">num_of_categorical_attribute</span><span class="p">)</span>
+
+<span class="n">num_of_ordinal_attribute</span> <span class="o">=</span> <span class="n">feat_info</span><span class="p">[</span><span class="n">feat_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ordinal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_of_ordinal_attribute&quot;</span><span class="p">,</span> <span class="n">num_of_ordinal_attribute</span><span class="p">)</span>
+
+<span class="n">num_of_numeric_attribute</span> <span class="o">=</span> <span class="n">feat_info</span><span class="p">[</span><span class="n">feat_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;numeric&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_of_numeric_attribute&quot;</span><span class="p">,</span> <span class="n">num_of_numeric_attribute</span><span class="p">)</span>
+
+<span class="n">num_of_mixed_attribute</span> <span class="o">=</span> <span class="n">feat_info</span><span class="p">[</span><span class="n">feat_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mixed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_of_mixed_attribute&quot;</span><span class="p">,</span> <span class="n">num_of_mixed_attribute</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>num_of_categorical_attribute 21
+num_of_ordinal_attribute 49
+num_of_numeric_attribute 7
+num_of_mixed_attribute 7
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14487,21 +14612,1703 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assess categorical variables: which are binary, which are multi-level, and</span>
-<span class="c1"># which one needs to be re-encoded?</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">categorical</span> <span class="o">=</span> <span class="n">feat_info</span><span class="p">[</span><span class="n">feat_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
+<span class="n">categorical</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[53]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>attribute</th>
+      <th>information_level</th>
+      <th>type</th>
+      <th>missing_or_unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AGER_TYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ANREDE_KZ</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CJT_GESAMTTYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>FINANZTYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>GFK_URLAUBERTYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>GREEN_AVANTGARDE</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>LP_FAMILIE_FEIN</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>LP_FAMILIE_GROB</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>LP_STATUS_FEIN</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>LP_STATUS_GROB</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>NATIONALITAET_KZ</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>SHOPPER_TYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>SOHO_KZ</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>TITEL_KZ</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>VERS_TYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>ZABEOTYP</td>
+      <td>person</td>
+      <td>categorical</td>
+      <td>[-1,9]</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>KK_KUNDENTYP</td>
+      <td>household</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>GEBAEUDETYP</td>
+      <td>building</td>
+      <td>categorical</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>OST_WEST_KZ</td>
+      <td>building</td>
+      <td>categorical</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>CAMEO_DEUG_2015</td>
+      <td>microcell_rr4</td>
+      <td>categorical</td>
+      <td>[-1,X]</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>CAMEO_DEU_2015</td>
+      <td>microcell_rr4</td>
+      <td>categorical</td>
+      <td>[XX]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assess categorical variables: which are binary, which are multi-level, and</span>
+<span class="c1"># which one needs to be re-encoded?</span>
+<span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]</span>
+
+<span class="c1"># drop &#39;TITEL_KZ&#39;, bc &#39;TITEL_KZ&#39; columns is not existed anymore in azdias dataframe</span>
+<span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical_attribute</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">categorical_attribute</span> <span class="o">!=</span> <span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">)</span>
+<span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical_attribute</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="c1"># print(categorical_attribute)</span>
+
+<span class="c1"># How to figure out which variable is binary, multi-level... by coding, not by looking at actual data</span>
+<span class="n">azdias</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[56]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AGER_TYP</th>
+      <th>ANREDE_KZ</th>
+      <th>CJT_GESAMTTYP</th>
+      <th>FINANZTYP</th>
+      <th>GFK_URLAUBERTYP</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>LP_FAMILIE_FEIN</th>
+      <th>LP_FAMILIE_GROB</th>
+      <th>LP_STATUS_FEIN</th>
+      <th>LP_STATUS_GROB</th>
+      <th>NATIONALITAET_KZ</th>
+      <th>SHOPPER_TYP</th>
+      <th>SOHO_KZ</th>
+      <th>VERS_TYP</th>
+      <th>ZABEOTYP</th>
+      <th>KK_KUNDENTYP</th>
+      <th>GEBAEUDETYP</th>
+      <th>OST_WEST_KZ</th>
+      <th>CAMEO_DEUG_2015</th>
+      <th>CAMEO_DEU_2015</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4C</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>2</td>
+      <td>2A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6B</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8C</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4A</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>9.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>2</td>
+      <td>2D</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>1</td>
+      <td>1A</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>1</td>
+      <td>1E</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>9.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6B</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5C</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8B</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>W</td>
+      <td>7</td>
+      <td>7A</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4C</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5D</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>11.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4C</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>11.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9E</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>12.0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6B</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5C</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9B</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>1</td>
+      <td>1A</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>2</td>
+      <td>2A</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>891191</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6C</td>
+    </tr>
+    <tr>
+      <th>891192</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5B</td>
+    </tr>
+    <tr>
+      <th>891193</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6B</td>
+    </tr>
+    <tr>
+      <th>891194</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>9.0</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4C</td>
+    </tr>
+    <tr>
+      <th>891195</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8D</td>
+    </tr>
+    <tr>
+      <th>891196</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4B</td>
+    </tr>
+    <tr>
+      <th>891197</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>3</td>
+      <td>3C</td>
+    </tr>
+    <tr>
+      <th>891198</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>2</td>
+      <td>2C</td>
+    </tr>
+    <tr>
+      <th>891199</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8A</td>
+    </tr>
+    <tr>
+      <th>891200</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9A</td>
+    </tr>
+    <tr>
+      <th>891201</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>7</td>
+      <td>7A</td>
+    </tr>
+    <tr>
+      <th>891202</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8B</td>
+    </tr>
+    <tr>
+      <th>891203</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>3</td>
+      <td>3D</td>
+    </tr>
+    <tr>
+      <th>891204</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>11.0</td>
+      <td>0</td>
+      <td>11.0</td>
+      <td>5.0</td>
+      <td>9.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>3</td>
+      <td>3C</td>
+    </tr>
+    <tr>
+      <th>891205</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5E</td>
+    </tr>
+    <tr>
+      <th>891206</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>9.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>3</td>
+      <td>3D</td>
+    </tr>
+    <tr>
+      <th>891207</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>7</td>
+      <td>7A</td>
+    </tr>
+    <tr>
+      <th>891208</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>2</td>
+      <td>2C</td>
+    </tr>
+    <tr>
+      <th>891209</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>9.0</td>
+      <td>0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8A</td>
+    </tr>
+    <tr>
+      <th>891210</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>8</td>
+      <td>8B</td>
+    </tr>
+    <tr>
+      <th>891211</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>891212</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>891213</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>11.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5E</td>
+    </tr>
+    <tr>
+      <th>891214</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>3</td>
+      <td>3A</td>
+    </tr>
+    <tr>
+      <th>891215</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>W</td>
+      <td>5</td>
+      <td>5A</td>
+    </tr>
+    <tr>
+      <th>891216</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>7</td>
+      <td>7A</td>
+    </tr>
+    <tr>
+      <th>891217</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>891218</th>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>4</td>
+      <td>4C</td>
+    </tr>
+    <tr>
+      <th>891219</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>9.0</td>
+      <td>0</td>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>9</td>
+      <td>9D</td>
+    </tr>
+    <tr>
+      <th>891220</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>12.0</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>W</td>
+      <td>6</td>
+      <td>6B</td>
+    </tr>
+  </tbody>
+</table>
+<p>891221 rows × 20 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode categorical variable(s) to be kept in the analysis.</span>
@@ -14536,7 +16343,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;PRAEGENDE_JUGENDJAHRE&quot; and engineer two new variables.</span>
@@ -14549,7 +16356,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;CAMEO_INTL_2015&quot; and engineer two new variables.</span>
@@ -14584,7 +16391,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If there are other re-engineering tasks you need to perform, make sure you</span>
@@ -14598,7 +16405,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do whatever you need to in order to ensure that the dataframe only contains</span>
@@ -14620,7 +16427,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14667,7 +16474,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you&#39;ve not yet cleaned the dataset of all NaN values, then investigate and</span>
@@ -14681,7 +16488,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply feature scaling to the general population demographics data.</span>
@@ -14715,7 +16522,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply PCA to the data.</span>
@@ -14728,7 +16535,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the variance accounted for by each principal component.</span>
@@ -14741,7 +16548,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-apply PCA to the data while selecting for number of components to retain.</span>
@@ -14775,7 +16582,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the first principal component to corresponding feature names</span>
@@ -14791,7 +16598,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the second principal component to corresponding feature names</span>
@@ -14805,7 +16612,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the third principal component to corresponding feature names</span>
@@ -14841,7 +16648,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Over a number of different cluster counts...</span>
@@ -14862,7 +16669,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the change in within-cluster distance across number of clusters.</span>
@@ -14876,7 +16683,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-fit the k-means model with the selected number of clusters and obtain</span>
@@ -14911,7 +16718,7 @@ before draw histogram
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the customer demographics data.</span>
@@ -14919,6 +16726,28 @@ before draw histogram
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-35-416d584d1460&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
+<span class="ansi-red-fg">    customers =</span>
+                ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
