@@ -13827,7 +13827,7 @@ div#notebook {
     </tr>
     <tr>
       <th>top</th>
-      <td>KBA05_BAUMAX</td>
+      <td>SEMIO_MAT</td>
       <td>person</td>
       <td>ordinal</td>
       <td>[-1]</td>
@@ -14064,266 +14064,10 @@ div#notebook {
 <span class="c1"># engineering tasks such as re-encoding and imputation later.)</span>
 <span class="c1">#remove TITEL_KZ </span>
 <span class="n">azdias_df</span> <span class="o">=</span> <span class="n">azdias_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">azdias_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="c1"># azdias_df.describe()</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>AGER_TYP</th>
-      <th>ALTERSKATEGORIE_GROB</th>
-      <th>ANREDE_KZ</th>
-      <th>CJT_GESAMTTYP</th>
-      <th>FINANZ_MINIMALIST</th>
-      <th>FINANZ_SPARER</th>
-      <th>FINANZ_VORSORGER</th>
-      <th>FINANZ_ANLEGER</th>
-      <th>FINANZ_UNAUFFAELLIGER</th>
-      <th>FINANZ_HAUSBAUER</th>
-      <th>...</th>
-      <th>PLZ8_ANTG1</th>
-      <th>PLZ8_ANTG2</th>
-      <th>PLZ8_ANTG3</th>
-      <th>PLZ8_ANTG4</th>
-      <th>PLZ8_BAUMAX</th>
-      <th>PLZ8_HHZ</th>
-      <th>PLZ8_GBZ</th>
-      <th>ARBEIT</th>
-      <th>ORTSGR_KLS9</th>
-      <th>RELAT_AB</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>205378.000000</td>
-      <td>888340.000000</td>
-      <td>891221.000000</td>
-      <td>886367.000000</td>
-      <td>891221.000000</td>
-      <td>891221.000000</td>
-      <td>891221.000000</td>
-      <td>891221.000000</td>
-      <td>891221.000000</td>
-      <td>891221.000000</td>
-      <td>...</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>774706.000000</td>
-      <td>793846.000000</td>
-      <td>793947.000000</td>
-      <td>793846.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1.743410</td>
-      <td>2.757217</td>
-      <td>1.522098</td>
-      <td>3.632838</td>
-      <td>3.074528</td>
-      <td>2.821039</td>
-      <td>3.401106</td>
-      <td>3.033328</td>
-      <td>2.874167</td>
-      <td>3.075121</td>
-      <td>...</td>
-      <td>2.253330</td>
-      <td>2.801858</td>
-      <td>1.595426</td>
-      <td>0.699166</td>
-      <td>1.943913</td>
-      <td>3.612821</td>
-      <td>3.381087</td>
-      <td>3.166686</td>
-      <td>5.293389</td>
-      <td>3.071033</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.674312</td>
-      <td>1.009951</td>
-      <td>0.499512</td>
-      <td>1.595021</td>
-      <td>1.321055</td>
-      <td>1.464749</td>
-      <td>1.322134</td>
-      <td>1.529603</td>
-      <td>1.486731</td>
-      <td>1.353248</td>
-      <td>...</td>
-      <td>0.972008</td>
-      <td>0.920309</td>
-      <td>0.986736</td>
-      <td>0.727137</td>
-      <td>1.459654</td>
-      <td>0.973967</td>
-      <td>1.111598</td>
-      <td>0.999072</td>
-      <td>2.303379</td>
-      <td>1.360532</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>2.000000</td>
-      <td>2.000000</td>
-      <td>...</td>
-      <td>1.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>4.000000</td>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>4.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>...</td>
-      <td>2.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>4.000000</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>5.000000</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.000000</td>
-      <td>4.000000</td>
-      <td>2.000000</td>
-      <td>5.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>...</td>
-      <td>3.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>3.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>7.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>3.000000</td>
-      <td>4.000000</td>
-      <td>2.000000</td>
-      <td>6.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>...</td>
-      <td>4.000000</td>
-      <td>4.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>5.000000</td>
-      <td>9.000000</td>
-      <td>5.000000</td>
-    </tr>
-  </tbody>
-</table>
-<p>8 rows × 80 columns</p>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -14722,91 +14466,11 @@ num_of_mixed_attribute 7
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_info_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop &#39;TITEL_KZ&#39;, bc &#39;TITEL_KZ&#39; columns is not existed anymore in azdias dataframe</span>
+<span class="n">feat_info_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="o">.</span><span class="n">attribute</span> <span class="o">!=</span> <span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[17]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>attribute</th>
-      <th>information_level</th>
-      <th>type</th>
-      <th>missing_or_unknown</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>AGER_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ALTERSKATEGORIE_GROB</td>
-      <td>person</td>
-      <td>ordinal</td>
-      <td>[-1,0,9]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ANREDE_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CJT_GESAMTTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>FINANZ_MINIMALIST</td>
-      <td>person</td>
-      <td>ordinal</td>
-      <td>[-1]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -14816,8 +14480,8 @@ num_of_mixed_attribute 7
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop &#39;TITEL_KZ&#39;, bc &#39;TITEL_KZ&#39; columns is not existed anymore in azdias dataframe</span>
-<span class="n">feat_info_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="o">.</span><span class="n">attribute</span> <span class="o">!=</span> <span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">categorical_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
+<span class="c1"># categorical_df</span>
 </pre></div>
 
     </div>
@@ -14830,197 +14494,12 @@ num_of_mixed_attribute 7
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">categorical_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
-<span class="n">categorical_df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop na for OneHotEncoder later</span>
+<span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]</span>
+<span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># drop NaN rows</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[19]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>attribute</th>
-      <th>information_level</th>
-      <th>type</th>
-      <th>missing_or_unknown</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>AGER_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ANREDE_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CJT_GESAMTTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>FINANZTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>GFK_URLAUBERTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>GREEN_AVANTGARDE</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>LP_FAMILIE_FEIN</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>LP_FAMILIE_GROB</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>LP_STATUS_FEIN</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>LP_STATUS_GROB</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>NATIONALITAET_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>SHOPPER_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>SOHO_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>VERS_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>ZABEOTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,9]</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>KK_KUNDENTYP</td>
-      <td>household</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>GEBAEUDETYP</td>
-      <td>building</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>OST_WEST_KZ</td>
-      <td>building</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>CAMEO_DEUG_2015</td>
-      <td>microcell_rr4</td>
-      <td>categorical</td>
-      <td>[-1,X]</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>CAMEO_DEU_2015</td>
-      <td>microcell_rr4</td>
-      <td>categorical</td>
-      <td>[XX]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -15030,631 +14509,12 @@ num_of_mixed_attribute 7
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop na for OneHotEncoder later</span>
-<span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]</span>
-<span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># drop NaN rows</span>
-<span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[20]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>AGER_TYP</th>
-      <th>ANREDE_KZ</th>
-      <th>CJT_GESAMTTYP</th>
-      <th>FINANZTYP</th>
-      <th>GFK_URLAUBERTYP</th>
-      <th>GREEN_AVANTGARDE</th>
-      <th>LP_FAMILIE_FEIN</th>
-      <th>LP_FAMILIE_GROB</th>
-      <th>LP_STATUS_FEIN</th>
-      <th>LP_STATUS_GROB</th>
-      <th>NATIONALITAET_KZ</th>
-      <th>SHOPPER_TYP</th>
-      <th>SOHO_KZ</th>
-      <th>VERS_TYP</th>
-      <th>ZABEOTYP</th>
-      <th>KK_KUNDENTYP</th>
-      <th>GEBAEUDETYP</th>
-      <th>OST_WEST_KZ</th>
-      <th>CAMEO_DEUG_2015</th>
-      <th>CAMEO_DEU_2015</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>W</td>
-      <td>8</td>
-      <td>8C</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>7.0</td>
-      <td>0</td>
-      <td>11.0</td>
-      <td>5.0</td>
-      <td>9.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>W</td>
-      <td>7</td>
-      <td>7A</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>6.0</td>
-      <td>0</td>
-      <td>10.0</td>
-      <td>5.0</td>
-      <td>9.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>W</td>
-      <td>3</td>
-      <td>3D</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>5.0</td>
-      <td>4.0</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>6.0</td>
-      <td>1.0</td>
-      <td>W</td>
-      <td>6</td>
-      <td>6D</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>5.0</td>
-      <td>10.0</td>
-      <td>0</td>
-      <td>11.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>W</td>
-      <td>8</td>
-      <td>8C</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#convert non-numeric values to dummy number</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">dtype</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
-    <span class="k">if</span> <span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="c1">#non-numeric case</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
-        <span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">,</span> <span class="n">dummy</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#add dummy columns at the end</span>
-        <span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>  <span class="c1">#drop the original column</span>
-        
-        <span class="c1">#remove the processed columns from categorical_attribute list, do not need have to re-encode</span>
-        <span class="n">categorical_df</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="p">[</span><span class="n">categorical_df</span><span class="o">.</span><span class="n">attribute</span> <span class="o">!=</span> <span class="n">col</span><span class="p">]</span>        
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>OST_WEST_KZ 2 [&#39;W&#39; &#39;O&#39;]
-CAMEO_DEUG_2015 9 [&#39;8&#39; &#39;7&#39; &#39;3&#39; &#39;6&#39; &#39;2&#39; &#39;1&#39; &#39;4&#39; &#39;5&#39; &#39;9&#39;]
-CAMEO_DEU_2015 44 [&#39;8C&#39; &#39;7A&#39; &#39;3D&#39; &#39;6D&#39; &#39;7D&#39; &#39;3C&#39; &#39;2A&#39; &#39;2B&#39; &#39;1D&#39; &#39;2D&#39; &#39;4C&#39; &#39;6B&#39; &#39;4D&#39; &#39;1A&#39; &#39;3B&#39;
- &#39;5F&#39; &#39;5A&#39; &#39;8A&#39; &#39;7B&#39; &#39;8B&#39; &#39;4A&#39; &#39;9B&#39; &#39;2C&#39; &#39;5B&#39; &#39;5D&#39; &#39;8D&#39; &#39;5C&#39; &#39;6E&#39; &#39;1C&#39; &#39;9D&#39;
- &#39;3A&#39; &#39;4B&#39; &#39;1E&#39; &#39;9E&#39; &#39;6C&#39; &#39;7E&#39; &#39;6F&#39; &#39;1B&#39; &#39;9A&#39; &#39;7C&#39; &#39;9C&#39; &#39;5E&#39; &#39;4E&#39; &#39;6A&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">categorical_df</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[22]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>attribute</th>
-      <th>information_level</th>
-      <th>type</th>
-      <th>missing_or_unknown</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>AGER_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ANREDE_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CJT_GESAMTTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>FINANZTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>GFK_URLAUBERTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>GREEN_AVANTGARDE</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>LP_FAMILIE_FEIN</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>LP_FAMILIE_GROB</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>LP_STATUS_FEIN</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>LP_STATUS_GROB</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[0]</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>NATIONALITAET_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>SHOPPER_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>SOHO_KZ</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>VERS_TYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>ZABEOTYP</td>
-      <td>person</td>
-      <td>categorical</td>
-      <td>[-1,9]</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>KK_KUNDENTYP</td>
-      <td>household</td>
-      <td>categorical</td>
-      <td>[-1]</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>GEBAEUDETYP</td>
-      <td>building</td>
-      <td>categorical</td>
-      <td>[-1,0]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">categorical_attribute</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">categorical_attribute</span><span class="p">)</span>
-<span class="c1"># How to figure out which variable is binary, multi-level... by coding, not by looking at actual data</span>
-<span class="n">azdias_df_lte_30</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0             AGER_TYP
-2            ANREDE_KZ
-3        CJT_GESAMTTYP
-10           FINANZTYP
-12     GFK_URLAUBERTYP
-13    GREEN_AVANTGARDE
-17     LP_FAMILIE_FEIN
-18     LP_FAMILIE_GROB
-19      LP_STATUS_FEIN
-20      LP_STATUS_GROB
-21    NATIONALITAET_KZ
-38         SHOPPER_TYP
-39             SOHO_KZ
-41            VERS_TYP
-42            ZABEOTYP
-47        KK_KUNDENTYP
-52         GEBAEUDETYP
-Name: attribute, dtype: object
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>AGER_TYP</th>
-      <th>ANREDE_KZ</th>
-      <th>CJT_GESAMTTYP</th>
-      <th>FINANZTYP</th>
-      <th>GFK_URLAUBERTYP</th>
-      <th>GREEN_AVANTGARDE</th>
-      <th>LP_FAMILIE_FEIN</th>
-      <th>LP_FAMILIE_GROB</th>
-      <th>LP_STATUS_FEIN</th>
-      <th>LP_STATUS_GROB</th>
-      <th>NATIONALITAET_KZ</th>
-      <th>SHOPPER_TYP</th>
-      <th>SOHO_KZ</th>
-      <th>VERS_TYP</th>
-      <th>ZABEOTYP</th>
-      <th>KK_KUNDENTYP</th>
-      <th>GEBAEUDETYP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>5.0</td>
-      <td>1.0</td>
-      <td>10.0</td>
-      <td>0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>10.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
-      <td>0</td>
-      <td>10.0</td>
-      <td>5.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>3.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assess categorical variables: which are binary, which are multi-level, and</span>
 <span class="c1"># which one needs to be re-encoded?</span>
 <span class="n">category_type_ls</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">category_dtype_ls</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">is_re_encode_required_ls</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">categorical_attribute</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">categorical_df</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]:</span>
 <span class="c1">#     print(attribute, azdias_df_lte_30[attribute].dtype, azdias_df_lte_30[attribute].unique())</span>
     <span class="n">unique_ls</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
     <span class="n">unique_ls_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ls</span><span class="p">)</span>    
@@ -15695,7 +14555,32 @@ Name: attribute, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.6/site-packages/ipykernel_launcher.py:30: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+/opt/conda/lib/python3.6/site-packages/ipykernel_launcher.py:31: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+/opt/conda/lib/python3.6/site-packages/ipykernel_launcher.py:32: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -15791,7 +14676,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15807,7 +14692,7 @@ Name: attribute, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -15831,152 +14716,152 @@ Name: attribute, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th>AGER_TYP</th>
+      <th>ALTERSKATEGORIE_GROB</th>
       <th>ANREDE_KZ</th>
       <th>CJT_GESAMTTYP</th>
-      <th>FINANZTYP</th>
-      <th>GFK_URLAUBERTYP</th>
-      <th>GREEN_AVANTGARDE</th>
-      <th>LP_FAMILIE_FEIN</th>
-      <th>LP_FAMILIE_GROB</th>
-      <th>LP_STATUS_FEIN</th>
-      <th>LP_STATUS_GROB</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
       <th>...</th>
-      <th>7E</th>
-      <th>8A</th>
-      <th>8B</th>
-      <th>8C</th>
-      <th>8D</th>
-      <th>9A</th>
-      <th>9B</th>
-      <th>9C</th>
-      <th>9D</th>
-      <th>9E</th>
+      <th>PLZ8_ANTG2</th>
+      <th>PLZ8_ANTG3</th>
+      <th>PLZ8_ANTG4</th>
+      <th>PLZ8_BAUMAX</th>
+      <th>PLZ8_HHZ</th>
+      <th>PLZ8_GBZ</th>
+      <th>ARBEIT</th>
+      <th>ORTSGR_KLS9</th>
+      <th>RELAT_AB</th>
+      <th>missing_count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>5</th>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>2.0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>7.0</td>
-      <td>0</td>
-      <td>11.0</td>
-      <td>5.0</td>
-      <td>9.0</td>
-      <td>4.0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>6.0</td>
-      <td>0</td>
-      <td>10.0</td>
-      <td>5.0</td>
-      <td>9.0</td>
-      <td>4.0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
       <th>84</th>
       <td>2.0</td>
+      <td>3.0</td>
       <td>1.0</td>
       <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
       <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>4.0</td>
-      <td>0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>9.0</td>
+      <td>4.0</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>93</th>
+      <th>115</th>
+      <td>1.0</td>
+      <td>3.0</td>
       <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>3.0</td>
       <td>5.0</td>
-      <td>10.0</td>
-      <td>0</td>
-      <td>11.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
+      <td>4.0</td>
+      <td>9.0</td>
       <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
       <td>...</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 72 columns</p>
+<p>5 rows × 85 columns</p>
 </div>
 </div>
 
@@ -15988,26 +14873,33 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode categorical variable(s) to be kept in the analysis.</span>
-<span class="n">enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">categorical_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">categorical_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">is_re_encode_required</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">categorical_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">attribute</span><span class="p">)</span>
-        <span class="n">attribute</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">attribute</span>
-        <span class="n">vals</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="c1"># re-encode</span>
-        <span class="n">vals</span> <span class="o">=</span> <span class="n">vals</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#reshape to 2d array</span>
-        <span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
-        <span class="n">reenc_vals</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="n">attribute</span> <span class="o">=</span> <span class="n">categorical_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">attribute</span> 
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">attribute</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="n">attribute</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">#         print(dummy.head)</span>
+<span class="c1">#         print(attribute, dummy.shape)</span>
         
-        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">reenc_vals</span>
-        <span class="c1">#What to do with OneHotEncodeded array? Should I attach to original &quot;azdias_df_lte_30_dropped&quot;? How?</span>
-<span class="c1">#         print(reenc_vals)</span>
-<span class="c1">#         print(azdias_df_lte_30_dropped[attribute].shape)</span>
-        
+        <span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">,</span> <span class="n">dummy</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#add dummy columns at the end</span>
+        <span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">attribute</span><span class="p">])</span>  <span class="c1">#drop the original column</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -16020,34 +14912,179 @@ Name: attribute, dtype: object
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>AGER_TYP
-&lt;class &#39;scipy.sparse.csr.csr_matrix&#39;&gt;
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALTERSKATEGORIE_GROB</th>
+      <th>ANREDE_KZ</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
+      <th>GEBURTSJAHR</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>...</th>
+      <th>AMEO_DEU_201_7E</th>
+      <th>AMEO_DEU_201_8A</th>
+      <th>AMEO_DEU_201_8B</th>
+      <th>AMEO_DEU_201_8C</th>
+      <th>AMEO_DEU_201_8D</th>
+      <th>AMEO_DEU_201_9A</th>
+      <th>AMEO_DEU_201_9B</th>
+      <th>AMEO_DEU_201_9C</th>
+      <th>AMEO_DEU_201_9D</th>
+      <th>AMEO_DEU_201_9E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1958.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1938.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1959.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1940.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 202 columns</p>
 </div>
 </div>
 
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-51-9bea03ea22ed&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>         reenc_vals_df <span class="ansi-blue-fg">=</span> enc<span class="ansi-blue-fg">.</span>transform<span class="ansi-blue-fg">(</span>vals<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>         print<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>reenc_vals_df<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg">         </span>azdias_df_lte_30_dropped<span class="ansi-blue-fg">[</span>attribute<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> reenc_vals_arr
-<span class="ansi-green-intense-fg ansi-bold">     14</span> <span class="ansi-red-fg">#         print(reenc_vals_arr)</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-red-fg">#         print(azdias_df_lte_30_dropped[attribute].shape)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;reenc_vals_arr&#39; is not defined</pre>
-</div>
 </div>
 
 </div>
@@ -16058,6 +15095,9 @@ Name: attribute, dtype: object
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Discussion-1.2.1:-Re-Encode-Categorical-Features">Discussion 1.2.1: Re-Encode Categorical Features<a class="anchor-link" href="#Discussion-1.2.1:-Re-Encode-Categorical-Features">&#182;</a></h4><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding categorical features. Which ones did you keep, which did you drop, and what engineering steps did you perform?)</p>
+<p>First, I dropped the rows with NaN value in it. 
+Second, I marked the columns with more than 2 categories or of which value type is not numeric.
+Thrid, I performed OneHotEncoded the columns I marked on the second step using get_dummies.</p>
 
 </div>
 </div>
@@ -16078,10 +15118,208 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 8.,  6.,  4.,  9.,  5.,  3.,  7.,  1.,  2.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;PRAEGENDE_JUGENDJAHRE&quot; and engineer two new variables.</span>
+
+<span class="c1">#create two new column to save new variables</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1940</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1949</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1940</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1949</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1950</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1959</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1950</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1959</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1960</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1969</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1960</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1969</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1960</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1969</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1970</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1979</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1970</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">1979</span><span class="p">)</span>
+        <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">,</span><span class="s1">&#39;decade&#39;</span><span class="p">,</span> <span class="s1">&#39;movement&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRAEGENDE_JUGENDJAHRE</th>
+      <th>decade</th>
+      <th>movement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>8.0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>6.0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>4.0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>8.0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>4.0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">84</span><span class="p">,</span><span class="s1">&#39;decade&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas._libs.interval.Interval</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#exclude PRAEGENDE_JUGENDJAHRE </span>
+<span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16094,10 +15332,398 @@ Name: attribute, dtype: object
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;CAMEO_INTL_2015&quot; and engineer two new variables.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still exist. need to exclude&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PRAEGENDE_JUGENDJAHRE is excluded&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PRAEGENDE_JUGENDJAHRE is excluded
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;35&#39;, &#39;24&#39;, &#39;15&#39;, &#39;12&#39;, &#39;14&#39;, &#39;25&#39;, &#39;41&#39;, &#39;31&#39;, &#39;43&#39;, &#39;51&#39;, &#39;13&#39;,
+       &#39;22&#39;, &#39;54&#39;, &#39;23&#39;, &#39;32&#39;, &#39;45&#39;, &#39;55&#39;, &#39;33&#39;, &#39;34&#39;, &#39;52&#39;, &#39;44&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate &quot;CAMEO_INTL_2015&quot; and engineer two new variables.</span>
+<span class="n">tens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ones</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">]:</span>
+    <span class="n">tens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">ones</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    
+<span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;tens&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tens</span>
+<span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ones</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="p">[[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">,</span><span class="s1">&#39;tens&#39;</span><span class="p">,</span> <span class="s1">&#39;ones&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CAMEO_INTL_2015</th>
+      <th>tens</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>35</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>24</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>15</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>12</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>14</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#exclude CAMEO_INTL_2015 </span>
+<span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">&#39;CAMEO_INTL_2015&#39;</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;still exist. need to exclude&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CAMEO_INTL_2015 is excluded&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CAMEO_INTL_2015 is excluded
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mixed_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mixed&#39;</span><span class="p">]</span>
+<span class="n">mixed_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[35]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>attribute</th>
+      <th>information_level</th>
+      <th>type</th>
+      <th>missing_or_unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15</th>
+      <td>LP_LEBENSPHASE_FEIN</td>
+      <td>person</td>
+      <td>mixed</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>LP_LEBENSPHASE_GROB</td>
+      <td>person</td>
+      <td>mixed</td>
+      <td>[0]</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PRAEGENDE_JUGENDJAHRE</td>
+      <td>person</td>
+      <td>mixed</td>
+      <td>[-1,0]</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>WOHNLAGE</td>
+      <td>building</td>
+      <td>mixed</td>
+      <td>[-1]</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>CAMEO_INTL_2015</td>
+      <td>microcell_rr4</td>
+      <td>mixed</td>
+      <td>[-1,XX]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#exclude all other mixed type</span>
+<span class="n">mixed_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;mixed&#39;</span><span class="p">]</span>
+<span class="n">mixed_attr</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">mixed_df</span><span class="p">[</span><span class="s1">&#39;attribute&#39;</span><span class="p">]:</span>
+    <span class="n">mixed_attr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">azdias_df_lte_30_dropped</span> <span class="o">=</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="s2">&quot;was already excluded&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PRAEGENDE_JUGENDJAHRE was already excluded
+CAMEO_INTL_2015 was already excluded
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">mixed_attr</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="s2">&quot;still exist. need to exclude&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span><span class="s2">&quot;is excluded&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LP_LEBENSPHASE_FEIN is excluded
+LP_LEBENSPHASE_GROB is excluded
+PRAEGENDE_JUGENDJAHRE is excluded
+WOHNLAGE is excluded
+CAMEO_INTL_2015 is excluded
+KBA05_BAUMAX is excluded
+PLZ8_BAUMAX is excluded
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -16106,6 +15732,9 @@ Name: attribute, dtype: object
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Discussion-1.2.2:-Engineer-Mixed-Type-Features">Discussion 1.2.2: Engineer Mixed-Type Features<a class="anchor-link" href="#Discussion-1.2.2:-Engineer-Mixed-Type-Features">&#182;</a></h4><p>(Double-click this cell and replace this text with your own text, reporting your findings and decisions regarding mixed-value features. Which ones did you keep, which did you drop, and what engineering steps did you perform?)</p>
+<p>Besides PRAEGENDE_JUGENDJAHRE, CAMEO_INTL_2015, which the information about the values were given to me, 
+I drop all other mixed types attributes.</p>
+<p>For both PRAEGENDE_JUGENDJAHRE and CAMEO_INTL_2015, I created additional columns which convey the meaning of data which was initially not capable of display with one dimension.</p>
 
 </div>
 </div>
@@ -16126,21 +15755,85 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If there are other re-engineering tasks you need to perform, make sure you</span>
 <span class="c1"># take care of them here. (Dealing with missing data will come in step 2.1.)</span>
+<span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>decade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>(1950, 1959]</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>(1950, 1959]</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>(1950, 1959]</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>(1950, 1959]</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>(1950, 1959]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do whatever you need to in order to ensure that the dataframe only contains</span>
@@ -16162,10 +15855,12 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">clean_data_helper</span> <span class="k">as</span> <span class="nn">h</span> 
+
+<span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feat_info_df</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform feature trimming, re-encoding, and engineering for demographics</span>
 <span class="sd">    data</span>
@@ -16173,23 +15868,1033 @@ Name: attribute, dtype: object
 <span class="sd">    INPUT: Demographics DataFrame</span>
 <span class="sd">    OUTPUT: Trimmed and cleaned demographics DataFrame</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
     <span class="c1"># Put in code here to execute all main cleaning steps:</span>
     <span class="c1"># convert missing value codes into NaNs, ...</span>
-    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">convert_to_nan</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feat_info_df</span><span class="p">)</span>
     
     <span class="c1"># remove selected columns and rows, ...</span>
+    <span class="c1">#drop the column with most missing values</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#drop TITEL_KZ in feat_info_df as well</span>
+    <span class="n">feat_info_df</span> <span class="o">=</span> <span class="n">feat_info_df</span><span class="p">[</span><span class="n">feat_info_df</span><span class="o">.</span><span class="n">attribute</span> <span class="o">!=</span> <span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">]</span>
+    <span class="c1">#create missing_count for each rows</span>
+    <span class="n">row_nans</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;missing_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_nans</span>
+    <span class="n">df_lte_30</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">missing_count</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">]</span> 
+    <span class="c1"># drop na for OneHotEncoder later</span>
+    <span class="n">df_lte_30_nadropped_df</span> <span class="o">=</span> <span class="n">df_lte_30</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># drop NaN rows</span>
 
-    
     <span class="c1"># select, re-encode, and engineer column values.</span>
-
+    <span class="c1"># mark re-encode necessary features in feat_info_df</span>
+    <span class="n">categorical_df</span><span class="p">,</span> <span class="n">feat_info_df</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">mark_multi_nonnum</span><span class="p">(</span><span class="n">df_lte_30_nadropped_df</span><span class="p">,</span> <span class="n">feat_info_df</span><span class="p">)</span>
+    <span class="n">df_lte_30_nadropped_encoded_df</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">re_encode_multi_nonnum_marked</span><span class="p">(</span><span class="n">df_lte_30_nadropped_df</span><span class="p">,</span> <span class="n">categorical_df</span><span class="p">)</span>
+    <span class="n">df_lte_30_nadropped_encoded_df</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">engineer_mixed</span><span class="p">(</span><span class="n">df_lte_30_nadropped_encoded_df</span><span class="p">,</span> <span class="n">feat_info_df</span><span class="p">)</span>
     
     <span class="c1"># Return the cleaned dataframe.</span>
+    <span class="k">return</span> <span class="n">df_lte_30_nadropped_encoded_df</span>
     
     
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the general demographics data.</span>
+<span class="n">test_azdias_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Udacity_AZDIAS_Subset.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Load in the feature summary file.</span>
+<span class="n">test_feat_info_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;AZDIAS_Feature_Summary.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+
+<span class="n">test_azdias_df</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">test_azdias_df</span><span class="p">,</span> <span class="n">test_feat_info_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/workspace/clean_data_helper.py:65: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  categorical_df[&#39;category_type&#39;] = category_type_ls
+/home/workspace/clean_data_helper.py:66: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  categorical_df[&#39;category_dtype&#39;] = category_dtype_ls
+/home/workspace/clean_data_helper.py:67: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  categorical_df[&#39;is_re_encode_required&#39;] = is_re_encode_required_ls
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>PRAEGENDE_JUGENDJAHRE was already excluded
+CAMEO_INTL_2015 was already excluded
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALTERSKATEGORIE_GROB</th>
+      <th>ANREDE_KZ</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
+      <th>GEBURTSJAHR</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>...</th>
+      <th>AMEO_DEU_201_8D</th>
+      <th>AMEO_DEU_201_9A</th>
+      <th>AMEO_DEU_201_9B</th>
+      <th>AMEO_DEU_201_9C</th>
+      <th>AMEO_DEU_201_9D</th>
+      <th>AMEO_DEU_201_9E</th>
+      <th>decade</th>
+      <th>movement</th>
+      <th>tens</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1958.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1938.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1959.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1940.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 199 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_azdias_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[43]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALTERSKATEGORIE_GROB</th>
+      <th>ANREDE_KZ</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
+      <th>GEBURTSJAHR</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>...</th>
+      <th>AMEO_DEU_201_8D</th>
+      <th>AMEO_DEU_201_9A</th>
+      <th>AMEO_DEU_201_9B</th>
+      <th>AMEO_DEU_201_9C</th>
+      <th>AMEO_DEU_201_9D</th>
+      <th>AMEO_DEU_201_9E</th>
+      <th>decade</th>
+      <th>movement</th>
+      <th>tens</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>84</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1958.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1947.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1938.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1959.0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1940.0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>(1950, 1959]</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 199 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALTERSKATEGORIE_GROB</th>
+      <th>ANREDE_KZ</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
+      <th>GEBURTSJAHR</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>...</th>
+      <th>AMEO_DEU_201_8C</th>
+      <th>AMEO_DEU_201_8D</th>
+      <th>AMEO_DEU_201_9A</th>
+      <th>AMEO_DEU_201_9B</th>
+      <th>AMEO_DEU_201_9C</th>
+      <th>AMEO_DEU_201_9D</th>
+      <th>AMEO_DEU_201_9E</th>
+      <th>movement</th>
+      <th>tens</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>...</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.0</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.516098</td>
+      <td>1.524106</td>
+      <td>4.071209</td>
+      <td>1.151947</td>
+      <td>4.828497</td>
+      <td>1.528639</td>
+      <td>1.472221</td>
+      <td>3.328910</td>
+      <td>1948.621224</td>
+      <td>0.387909</td>
+      <td>...</td>
+      <td>0.039145</td>
+      <td>0.027961</td>
+      <td>0.014030</td>
+      <td>0.015949</td>
+      <td>0.012144</td>
+      <td>0.018696</td>
+      <td>0.004335</td>
+      <td>0.0</td>
+      <td>2.802356</td>
+      <td>3.339532</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.639827</td>
+      <td>0.499427</td>
+      <td>1.063142</td>
+      <td>0.427166</td>
+      <td>0.425218</td>
+      <td>0.816938</td>
+      <td>0.671681</td>
+      <td>1.321394</td>
+      <td>7.827333</td>
+      <td>0.487282</td>
+      <td>...</td>
+      <td>0.193943</td>
+      <td>0.164863</td>
+      <td>0.117616</td>
+      <td>0.125281</td>
+      <td>0.109530</td>
+      <td>0.135450</td>
+      <td>0.065697</td>
+      <td>0.0</td>
+      <td>1.480677</td>
+      <td>1.398792</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1904.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1943.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1950.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>1955.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>1959.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 198 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_azdias_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALTERSKATEGORIE_GROB</th>
+      <th>ANREDE_KZ</th>
+      <th>FINANZ_MINIMALIST</th>
+      <th>FINANZ_SPARER</th>
+      <th>FINANZ_VORSORGER</th>
+      <th>FINANZ_ANLEGER</th>
+      <th>FINANZ_UNAUFFAELLIGER</th>
+      <th>FINANZ_HAUSBAUER</th>
+      <th>GEBURTSJAHR</th>
+      <th>GREEN_AVANTGARDE</th>
+      <th>...</th>
+      <th>AMEO_DEU_201_8C</th>
+      <th>AMEO_DEU_201_8D</th>
+      <th>AMEO_DEU_201_9A</th>
+      <th>AMEO_DEU_201_9B</th>
+      <th>AMEO_DEU_201_9C</th>
+      <th>AMEO_DEU_201_9D</th>
+      <th>AMEO_DEU_201_9E</th>
+      <th>movement</th>
+      <th>tens</th>
+      <th>ones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>...</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+      <td>30221.0</td>
+      <td>30221.000000</td>
+      <td>30221.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.516098</td>
+      <td>1.524106</td>
+      <td>4.071209</td>
+      <td>1.151947</td>
+      <td>4.828497</td>
+      <td>1.528639</td>
+      <td>1.472221</td>
+      <td>3.328910</td>
+      <td>1948.621224</td>
+      <td>0.387909</td>
+      <td>...</td>
+      <td>0.039145</td>
+      <td>0.027961</td>
+      <td>0.014030</td>
+      <td>0.015949</td>
+      <td>0.012144</td>
+      <td>0.018696</td>
+      <td>0.004335</td>
+      <td>0.0</td>
+      <td>2.802356</td>
+      <td>3.339532</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.639827</td>
+      <td>0.499427</td>
+      <td>1.063142</td>
+      <td>0.427166</td>
+      <td>0.425218</td>
+      <td>0.816938</td>
+      <td>0.671681</td>
+      <td>1.321394</td>
+      <td>7.827333</td>
+      <td>0.487282</td>
+      <td>...</td>
+      <td>0.193943</td>
+      <td>0.164863</td>
+      <td>0.117616</td>
+      <td>0.125281</td>
+      <td>0.109530</td>
+      <td>0.135450</td>
+      <td>0.065697</td>
+      <td>0.0</td>
+      <td>1.480677</td>
+      <td>1.398792</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1904.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1943.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1950.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>1955.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>1959.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 198 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -16209,11 +16914,311 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you&#39;ve not yet cleaned the dataset of all NaN values, then investigate and</span>
 <span class="c1"># do that now.</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">azdias_df_lte_30_dropped</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ALTERSKATEGORIE_GROB float64
+ANREDE_KZ float64
+FINANZ_MINIMALIST float64
+FINANZ_SPARER float64
+FINANZ_VORSORGER float64
+FINANZ_ANLEGER float64
+FINANZ_UNAUFFAELLIGER float64
+FINANZ_HAUSBAUER float64
+GEBURTSJAHR float64
+GREEN_AVANTGARDE int64
+HEALTH_TYP float64
+RETOURTYP_BK_S float64
+SEMIO_SOZ float64
+SEMIO_FAM float64
+SEMIO_REL float64
+SEMIO_MAT float64
+SEMIO_VERT float64
+SEMIO_LUST float64
+SEMIO_ERL float64
+SEMIO_KULT float64
+SEMIO_RAT float64
+SEMIO_KRIT float64
+SEMIO_DOM float64
+SEMIO_KAEM float64
+SEMIO_PFLICHT float64
+SEMIO_TRADV float64
+SOHO_KZ float64
+VERS_TYP float64
+ALTER_HH float64
+ANZ_PERSONEN float64
+ANZ_TITEL float64
+HH_EINKOMMEN_SCORE float64
+W_KEIT_KIND_HH float64
+WOHNDAUER_2008 float64
+ANZ_HAUSHALTE_AKTIV float64
+ANZ_HH_TITEL float64
+KONSUMNAEHE float64
+MIN_GEBAEUDEJAHR float64
+KBA05_ANTG1 float64
+KBA05_ANTG2 float64
+KBA05_ANTG3 float64
+KBA05_ANTG4 float64
+KBA05_GBZ float64
+BALLRAUM float64
+EWDICHTE float64
+INNENSTADT float64
+GEBAEUDETYP_RASTER float64
+KKK float64
+MOBI_REGIO float64
+ONLINE_AFFINITAET float64
+REGIOTYP float64
+KBA13_ANZAHL_PKW float64
+PLZ8_ANTG1 float64
+PLZ8_ANTG2 float64
+PLZ8_ANTG3 float64
+PLZ8_ANTG4 float64
+PLZ8_HHZ float64
+PLZ8_GBZ float64
+ARBEIT float64
+ORTSGR_KLS9 float64
+RELAT_AB float64
+missing_count int64
+GER_TY_1.0 uint8
+GER_TY_2.0 uint8
+GER_TY_3.0 uint8
+JT_GESAMTTY_1.0 uint8
+JT_GESAMTTY_2.0 uint8
+JT_GESAMTTY_3.0 uint8
+JT_GESAMTTY_4.0 uint8
+JT_GESAMTTY_5.0 uint8
+JT_GESAMTTY_6.0 uint8
+INANZTY_1.0 uint8
+INANZTY_2.0 uint8
+INANZTY_3.0 uint8
+INANZTY_5.0 uint8
+INANZTY_6.0 uint8
+FK_URLAUBERTY_1.0 uint8
+FK_URLAUBERTY_2.0 uint8
+FK_URLAUBERTY_3.0 uint8
+FK_URLAUBERTY_4.0 uint8
+FK_URLAUBERTY_5.0 uint8
+FK_URLAUBERTY_6.0 uint8
+FK_URLAUBERTY_7.0 uint8
+FK_URLAUBERTY_8.0 uint8
+FK_URLAUBERTY_9.0 uint8
+FK_URLAUBERTY_10.0 uint8
+FK_URLAUBERTY_11.0 uint8
+FK_URLAUBERTY_12.0 uint8
+P_FAMILIE_FEI_1.0 uint8
+P_FAMILIE_FEI_2.0 uint8
+P_FAMILIE_FEI_3.0 uint8
+P_FAMILIE_FEI_4.0 uint8
+P_FAMILIE_FEI_5.0 uint8
+P_FAMILIE_FEI_6.0 uint8
+P_FAMILIE_FEI_7.0 uint8
+P_FAMILIE_FEI_8.0 uint8
+P_FAMILIE_FEI_9.0 uint8
+P_FAMILIE_FEI_10.0 uint8
+P_FAMILIE_FEI_11.0 uint8
+P_FAMILIE_GRO_1.0 uint8
+P_FAMILIE_GRO_2.0 uint8
+P_FAMILIE_GRO_3.0 uint8
+P_FAMILIE_GRO_4.0 uint8
+P_FAMILIE_GRO_5.0 uint8
+P_STATUS_FEI_1.0 uint8
+P_STATUS_FEI_2.0 uint8
+P_STATUS_FEI_3.0 uint8
+P_STATUS_FEI_4.0 uint8
+P_STATUS_FEI_5.0 uint8
+P_STATUS_FEI_6.0 uint8
+P_STATUS_FEI_7.0 uint8
+P_STATUS_FEI_8.0 uint8
+P_STATUS_FEI_9.0 uint8
+P_STATUS_FEI_10.0 uint8
+P_STATUS_GRO_1.0 uint8
+P_STATUS_GRO_2.0 uint8
+P_STATUS_GRO_3.0 uint8
+P_STATUS_GRO_4.0 uint8
+P_STATUS_GRO_5.0 uint8
+ATIONALITAET_K_1.0 uint8
+ATIONALITAET_K_2.0 uint8
+ATIONALITAET_K_3.0 uint8
+HOPPER_TY_0.0 uint8
+HOPPER_TY_1.0 uint8
+HOPPER_TY_2.0 uint8
+HOPPER_TY_3.0 uint8
+ABEOTY_1.0 uint8
+ABEOTY_2.0 uint8
+ABEOTY_3.0 uint8
+ABEOTY_4.0 uint8
+ABEOTY_6.0 uint8
+K_KUNDENTY_1.0 uint8
+K_KUNDENTY_2.0 uint8
+K_KUNDENTY_3.0 uint8
+K_KUNDENTY_4.0 uint8
+K_KUNDENTY_5.0 uint8
+K_KUNDENTY_6.0 uint8
+EBAEUDETY_1.0 uint8
+EBAEUDETY_3.0 uint8
+EBAEUDETY_8.0 uint8
+ST_WEST_K_O uint8
+ST_WEST_K_W uint8
+AMEO_DEUG_201_1 uint8
+AMEO_DEUG_201_2 uint8
+AMEO_DEUG_201_3 uint8
+AMEO_DEUG_201_4 uint8
+AMEO_DEUG_201_5 uint8
+AMEO_DEUG_201_6 uint8
+AMEO_DEUG_201_7 uint8
+AMEO_DEUG_201_8 uint8
+AMEO_DEUG_201_9 uint8
+AMEO_DEU_201_1A uint8
+AMEO_DEU_201_1B uint8
+AMEO_DEU_201_1C uint8
+AMEO_DEU_201_1D uint8
+AMEO_DEU_201_1E uint8
+AMEO_DEU_201_2A uint8
+AMEO_DEU_201_2B uint8
+AMEO_DEU_201_2C uint8
+AMEO_DEU_201_2D uint8
+AMEO_DEU_201_3A uint8
+AMEO_DEU_201_3B uint8
+AMEO_DEU_201_3C uint8
+AMEO_DEU_201_3D uint8
+AMEO_DEU_201_4A uint8
+AMEO_DEU_201_4B uint8
+AMEO_DEU_201_4C uint8
+AMEO_DEU_201_4D uint8
+AMEO_DEU_201_4E uint8
+AMEO_DEU_201_5A uint8
+AMEO_DEU_201_5B uint8
+AMEO_DEU_201_5C uint8
+AMEO_DEU_201_5D uint8
+AMEO_DEU_201_5E uint8
+AMEO_DEU_201_5F uint8
+AMEO_DEU_201_6A uint8
+AMEO_DEU_201_6B uint8
+AMEO_DEU_201_6C uint8
+AMEO_DEU_201_6D uint8
+AMEO_DEU_201_6E uint8
+AMEO_DEU_201_6F uint8
+AMEO_DEU_201_7A uint8
+AMEO_DEU_201_7B uint8
+AMEO_DEU_201_7C uint8
+AMEO_DEU_201_7D uint8
+AMEO_DEU_201_7E uint8
+AMEO_DEU_201_8A uint8
+AMEO_DEU_201_8B uint8
+AMEO_DEU_201_8C uint8
+AMEO_DEU_201_8D uint8
+AMEO_DEU_201_9A uint8
+AMEO_DEU_201_9B uint8
+AMEO_DEU_201_9C uint8
+AMEO_DEU_201_9D uint8
+AMEO_DEU_201_9E uint8
+decade object
+movement int64
+tens int64
+ones int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span> <span class="k">as</span> <span class="n">p</span>
+
+<span class="c1"># Apply feature scaling to the general population demographics data.</span>
+<span class="n">df_ss</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">azdias_df_lte_30_dropped</span><span class="p">)</span> <span class="c1"># Fit and transform the data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-47-d6164ec57868&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg"># Apply feature scaling to the general population demographics data.</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>df_ss <span class="ansi-blue-fg">=</span> p<span class="ansi-blue-fg">.</span>StandardScaler<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>fit_transform<span class="ansi-blue-fg">(</span>azdias_df_lte_30_dropped<span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># Fit and transform the data</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.6/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">fit_transform</span><span class="ansi-blue-fg">(self, X, y, **fit_params)</span>
+<span class="ansi-green-intense-fg ansi-bold">    515</span>         <span class="ansi-green-fg">if</span> y <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    516</span>             <span class="ansi-red-fg"># fit method of arity 1 (unsupervised transformation)</span>
+<span class="ansi-green-fg">--&gt; 517</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>fit<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>fit_params<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>transform<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    518</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    519</span>             <span class="ansi-red-fg"># fit method of arity 2 (supervised transformation)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.6/site-packages/sklearn/preprocessing/data.py</span> in <span class="ansi-cyan-fg">fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+<span class="ansi-green-intense-fg ansi-bold">    588</span>         <span class="ansi-red-fg"># Reset internal state before fitting</span>
+<span class="ansi-green-intense-fg ansi-bold">    589</span>         self<span class="ansi-blue-fg">.</span>_reset<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 590</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>partial_fit<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    591</span> 
+<span class="ansi-green-intense-fg ansi-bold">    592</span>     <span class="ansi-green-fg">def</span> partial_fit<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> X<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.6/site-packages/sklearn/preprocessing/data.py</span> in <span class="ansi-cyan-fg">partial_fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+<span class="ansi-green-intense-fg ansi-bold">    610</span>         &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">    611</span>         X = check_array(X, accept_sparse=(&#39;csr&#39;, &#39;csc&#39;), copy=self.copy,
+<span class="ansi-green-fg">--&gt; 612</span><span class="ansi-red-fg">                         warn_on_dtype=True, estimator=self, dtype=FLOAT_DTYPES)
+</span><span class="ansi-green-intense-fg ansi-bold">    613</span> 
+<span class="ansi-green-intense-fg ansi-bold">    614</span>         <span class="ansi-red-fg"># Even in the case of `with_mean=False`, we update the mean anyway</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.6/site-packages/sklearn/utils/validation.py</span> in <span class="ansi-cyan-fg">check_array</span><span class="ansi-blue-fg">(array, accept_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)</span>
+<span class="ansi-green-intense-fg ansi-bold">    431</span>                                       force_all_finite)
+<span class="ansi-green-intense-fg ansi-bold">    432</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 433</span><span class="ansi-red-fg">         </span>array <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>array<span class="ansi-blue-fg">(</span>array<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> order<span class="ansi-blue-fg">=</span>order<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    434</span> 
+<span class="ansi-green-intense-fg ansi-bold">    435</span>         <span class="ansi-green-fg">if</span> ensure_2d<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">TypeError</span>: float() argument must be a string or a number, not &#39;pandas._libs.interval.Interval&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_ss</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -16223,10 +17228,10 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply feature scaling to the general population demographics data.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">azdias_df_lte_30_dropped</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -16257,7 +17262,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply PCA to the data.</span>
@@ -16270,7 +17275,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the variance accounted for by each principal component.</span>
@@ -16283,7 +17288,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-apply PCA to the data while selecting for number of components to retain.</span>
@@ -16317,7 +17322,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the first principal component to corresponding feature names</span>
@@ -16333,7 +17338,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the second principal component to corresponding feature names</span>
@@ -16347,7 +17352,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the third principal component to corresponding feature names</span>
@@ -16383,7 +17388,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Over a number of different cluster counts...</span>
@@ -16404,7 +17409,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate the change in within-cluster distance across number of clusters.</span>
@@ -16418,7 +17423,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-fit the k-means model with the selected number of clusters and obtain</span>
@@ -16453,7 +17458,7 @@ Name: attribute, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the customer demographics data.</span>
@@ -16461,28 +17466,6 @@ Name: attribute, dtype: object
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-44-416d584d1460&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
-<span class="ansi-red-fg">    customers =</span>
-                ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
