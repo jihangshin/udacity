@@ -84,34 +84,8 @@ def engineer_mixed(df, feat_info_df):
     # Investigate "PRAEGENDE_JUGENDJAHRE" and engineer two new variables.
 
     #create two new column to save new variables
-    for val in df['PRAEGENDE_JUGENDJAHRE']:
-        if val == 1:
-            df['decade'] = pd.Interval(left=1940, right=1949)
-            df['movement'] = 0
-        elif val == 2:
-            df['decade'] = pd.Interval(left=1940, right=1949)
-            df['movement'] = 1
-        elif val == 3:
-            df['decade'] = pd.Interval(left=1950, right=1959)
-            df['movement'] = 0
-        elif val == 4:
-            df['decade'] = pd.Interval(left=1950, right=1959)
-            df['movement'] = 1
-        elif val == 5:
-            df['decade'] = pd.Interval(left=1960, right=1969)
-            df['movement'] = 0
-        elif val == 6:
-            df['decade'] = pd.Interval(left=1960, right=1969)
-            df['movement'] = 1
-        elif val == 7:
-            df['decade'] = pd.Interval(left=1960, right=1969)
-            df['movement'] = 1
-        elif val == 8:
-            df['decade'] = pd.Interval(left=1970, right=1979)
-            df['movement'] = 0
-        elif val == 9:
-            df['decade'] = pd.Interval(left=1970, right=1979)
-            df['movement'] = 1
+    df['DECADE'] = pd.cut(df['PRAEGENDE_JUGENDJAHRE'], [1,3,5,8,10,14,16], False, [40,50,60,70,80,90]) 
+    df['IS_MAINSTREAM_MOVEMENT'] = df['PRAEGENDE_JUGENDJAHRE'].isin([1,3,5,8,10,12,14]).astype(float)
 
     #exclude PRAEGENDE_JUGENDJAHRE 
     df = df.drop('PRAEGENDE_JUGENDJAHRE', 1)
