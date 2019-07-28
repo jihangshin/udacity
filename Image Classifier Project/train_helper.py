@@ -40,8 +40,12 @@ def _build_model(arch, hidden_units):
     model = None
     if arch == 'vgg16':
         model = models.vgg16(pretrained=True)
+        classifier_input_size = model.classifier.in_features
+        print('vgg16 classifier_input_size :', classifier_input_size)
     elif arch == 'vgg13':
         model = models.vgg13(pretrained=True)
+        classifier_input_size = model.classifier.in_features
+        print('vgg13 classifier_input_size :', classifier_input_size)
     else:
         print("[ERROR] _build_model - Unsupported Arch Option")
         return error.UNSUPPORTED_ARCH_ERROR

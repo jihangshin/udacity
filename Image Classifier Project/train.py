@@ -19,7 +19,8 @@ my_parser.add_argument('dataDirectory',
                        type=str,
                        help='the path where data is placed')
 my_parser.add_argument('--save_dir', action='store', type=str, default='./checkpoint.pth')
-my_parser.add_argument('--arch', action='store', type=str, default='vgg16')
+my_parser.add_argument('--arch', action='store', type=str,choices=['vgg13', 'vgg16'], default='vgg16')
+# my_parser.add_argument('--arch', dest='arch', default='vgg16', action='store',choices=['vgg13', 'vgg16'], help='Architecture')
 my_parser.add_argument('--learning_rate', action='store', type=float, default=0.002)
 my_parser.add_argument('--hidden_units', action='store', type=int, default=1024)
 my_parser.add_argument('--epochs', action='store', type=int, default=1)
