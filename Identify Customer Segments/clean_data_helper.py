@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import Imputer
 
 def RepresentsInt(s):
     try: 
@@ -11,26 +12,32 @@ def RepresentsInt(s):
 def convert_to_nan(df, feat_info_df):
     # Identify missing or unknown data values and convert them to NaNs.
     #series
-    sr_origin = feat_info_df['missing_or_unknown']
-    for origin in sr_origin.iteritems():
-        i_origin = origin[0]
-        str_origin = origin[1]
-        
-        # convert string to list for 'missing_or_unknown' value
-        stripped = str_origin.strip('[]')
-        ls_missing_or_unknown = stripped.split(',')
-        
-        # change missing_or_unknown -> NaN
-        attribute_name = feat_info_df.loc[i_origin, 'attribute']
-        for i in ls_missing_or_unknown:
-            # skip the null value 
-            if len(i) > 0:
-                # convert to int only if i is integer
-                if RepresentsInt(i) == True:
-                    df.loc[df[attribute_name] == int(i), attribute_name] = np.nan
+    for row in feat_info_df.iterrows():
+        row_val = row[1]
+        column = df[row_val['attribute']]
+        missing_values = row_val['missing_or_unknown'][1:-1].split(',')
+        if missing_values != ['']:
+            for mv in missing_values:
+                if mv != 'X' and mv != 'XX':
+                    column.replace(int(mv), np.nan, inplace = True)
                 else:
-                    df.loc[df[attribute_name] == i, attribute_name] = np.nan
+                    column.replace(mv, np.nan, inplace = True)
+
+        df[row_val['attribute']] = column
+
     return df
+
+def drop_non_existing_col(feat_info_df):
+    # drop 'AGER_TYP', 'GEBURTSJAHR', 'TITEL_KZ', 'ALTER_HH', 'KK_KUNDENTYP', 'KBA05_BAUMAX'
+    #, bc the columns are not existed anymore in azdias dataframe
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'AGER_TYP']
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'GEBURTSJAHR']
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'TITEL_KZ']
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'ALTER_HH']
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'KK_KUNDENTYP']
+    feat_info_df = feat_info_df[feat_info_df.attribute != 'KBA05_BAUMAX']
+
+    return feat_info_df
 
 def mark_multi_nonnum(df, feat_info_df):
     categorical_df = feat_info_df[feat_info_df['type'] == 'categorical']
@@ -80,6 +87,16 @@ def re_encode_multi_nonnum_marked(df, categorical_df):
 
     return df
 
+def _impute_nan(df):
+    imp = Imputer(missing_values='NaN', strategy='mean', axis=0)
+    imputed = imp.fit_transform(df)
+    imputed_df = pd.DataFrame(imputed)
+
+    # Set columns index back to original label
+    imputed_df.columns = df.columns
+
+    return imputed_df
+
 def engineer_mixed(df, feat_info_df):
     # Investigate "PRAEGENDE_JUGENDJAHRE" and engineer two new variables.
 
@@ -90,18 +107,23 @@ def engineer_mixed(df, feat_info_df):
     #exclude PRAEGENDE_JUGENDJAHRE 
     df = df.drop('PRAEGENDE_JUGENDJAHRE', 1)
 
+    # Impute NaN values with mean of each colums
+    # Perform Imputing here bc 'CAMEO_INTL_2015' contains nan value needed to be replaced before engineering process
+    imputed_df = _impute_nan(df)
+
     # Investigate "CAMEO_INTL_2015" and engineer two new variables.
     tens = []
     ones = []
-    for val in df['CAMEO_INTL_2015']:
-        tens.append(int(val[0]))
-        ones.append(int(val[1]))
+    for val in imputed_df['CAMEO_INTL_2015']:
+        str_val = str(val)
+        tens.append(int(str_val[0]))
+        ones.append(int(str_val[1]))
         
-    df['tens'] = tens
-    df['ones'] = ones
+    imputed_df['tens'] = tens
+    imputed_df['ones'] = ones
 
     #exclude CAMEO_INTL_2015 
-    df = df.drop('CAMEO_INTL_2015', 1)
+    imputed_df = imputed_df.drop('CAMEO_INTL_2015', 1)
 
     #exclude all other mixed type
     mixed_df = feat_info_df[feat_info_df['type'] == 'mixed']
@@ -109,31 +131,11 @@ def engineer_mixed(df, feat_info_df):
     for attribute in mixed_df['attribute']:
         mixed_attr.append(attribute)
         try:
-            df = df.drop(attribute, 1)
+            imputed_df = imputed_df.drop(attribute, 1)
         except KeyError:
             print(attribute, "was already excluded")
     
-    return df
+    return imputed_df
 
-# def clean_data(df, feat_info_df):
-#     # Put in code here to execute all main cleaning steps:
-#     # convert missing value codes into NaNs, ...
-#     df = convert_to_nan(df, feat_info_df)
-    
-#     # remove selected columns and rows, ...
-#     #drop the column with most missing values
-#     df = df.drop('TITEL_KZ', 1)
-#     df_lte_30 = df[df.missing_count <= 30] 
-#     # drop na for OneHotEncoder later
-#     df_lte_30_nadropped_df = df_lte_30.dropna() # drop NaN rows
-
-#     # select, re-encode, and engineer column values.
-#     # mark re-encode necessary features in feat_info_df
-#     categorical_df, feat_info_df = mark_multi_nonnum(df_lte_30_nadropped_df, feat_info_df)
-#     df_lte_30_nadropped_encoded_df = re_encode_multi_nonnum_marked(df_lte_30_nadropped_df, categorical_df)
-#     df_lte_30_nadropped_encoded_df = engineer_mixed(df_lte_30_nadropped_encoded_df, feat_info_df)
-    
-#     # Return the cleaned dataframe.
-#     return df_lte_30_nadropped_encoded_df
 
 
