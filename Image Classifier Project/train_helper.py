@@ -40,18 +40,19 @@ def _build_model(arch, hidden_units):
     model = None
     if arch == 'vgg16':
         model = models.vgg16(pretrained=True)
-        classifier_input_size = model.classifier.in_features
+        classifier_input_size = model.classifier[0].in_features
         print('vgg16 classifier_input_size :', classifier_input_size)
     elif arch == 'vgg13':
         model = models.vgg13(pretrained=True)
-        classifier_input_size = model.classifier.in_features
+        classifier_input_size = model.classifier[0].in_features
         print('vgg13 classifier_input_size :', classifier_input_size)
     else:
         print("[ERROR] _build_model - Unsupported Arch Option")
         return error.UNSUPPORTED_ARCH_ERROR
     
+    print(model.classifier)
     classifier = nn.Sequential(OrderedDict([
-                              ('fc1', nn.Linear(25088,hidden_units)),
+                              ('fc1', nn.Linear(classifier_input_size,hidden_units)),
                               ('relu1', nn.ReLU()),
                               ('drop1', nn.Dropout(p=0.2)),
                               ('fc5', nn.Linear(hidden_units, 102)),
@@ -132,9 +133,9 @@ def save_model(model, train_data, optimizer, save_dir):
 
     # TODO: Save the checkpoint
     model.cpu()
-
+    classifier_input_size = model.classifier[0].in_features
     checkpoint = {'state_dict': model.state_dict(),
-                'input_size': 25088,
+                'input_size': classifier_input_size,
                 'output_size': 102,
                 'epochs': 1, 
                 'optimizer_state_dict': optimizer.state_dict(),
