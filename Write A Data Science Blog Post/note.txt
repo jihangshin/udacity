@@ -13,6 +13,16 @@
 https://medium.com/@5eo1ab/jupyter-notebook%EC%97%90-%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-kernel-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0-ed5261a7e0e6얀
 
 
+no_nulls = set(df.columns[df.isnull().mean()==0])#Provide a set of columns with 0 missing values.
+status_vals = df.Professional.value_counts()#Provide a pandas series of the counts for each Professional status
+pd.DataFrame(df.query("Professional == 'Professional developer' and (Gender == 'Male' or Gender == 'Female')").groupby(['Gender', 'FormalEducation']).mean()['Salary'])
 
 
 conda activate dnsd_t2_p1_env
+
+conda create -n dnsd_t2_p1_env python=3.7.4
+
+conda deactivate
+
+conda env remove -n dnsd_t2_p1_env
+
